@@ -1,0 +1,14 @@
+#!/bin/sh
+
+echo "-----> Installing heroku buildpack p7zip"
+BUILD_DIR=$1
+cd $BUILD_DIR
+mkdir -p "vendor" 
+cd "vendor"
+DOWNLOAD_URL="https://s3-ap-southeast-2.amazonaws.com/file.blueport.io/buildpack/p7zip_15.14.1.tar.gz"
+curl -L  --silent $DOWNLOAD_URL | tar xzf --strip-components=1
+PROFILE_PATH="$BUILD_DIR/.profile.d/7za.sh"
+mkdir -p $(dirname $PROFILE_PATH)
+echo 'export PATH="$PATH:${HOME}/vendor"' >> $PROFILE_PATH
+
+echo "Done."
