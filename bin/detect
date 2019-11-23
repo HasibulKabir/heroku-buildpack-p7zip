@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+echo "heroku-buildpack-p7zip"
