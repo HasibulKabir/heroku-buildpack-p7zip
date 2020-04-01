@@ -1,6 +1,7 @@
 #!/bin/sh
 
 echo "-----> Installing heroku buildpack p7zip"
+
 BUILD_DIR=$1
 VENDOR_DIR="$BUILD_DIR/vendor"
 curl "https://s3.amazonaws.com/opendoor-deps/p7zip_9.20.1.tar.gz" -s -o - | tar xzf - -C "$VENDOR_DIR"
