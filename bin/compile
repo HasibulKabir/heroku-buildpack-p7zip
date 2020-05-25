@@ -4,7 +4,7 @@ echo "-----> Installing heroku buildpack p7zip"
 BUILD_DIR=$1
 mkdir -p "$BUILD_DIR/vendor"
 VENDOR_DIR="$BUILD_DIR/vendor"
-curl "https://s3.amazonaws.com/opendoor-deps/p7zip_9.20.1.tar.gz" -s -o - | tar xzf - -C "$VENDOR_DIR"
+curl "https://netcologne.dl.sourceforge.net/project/p7zip/p7zip/16.02/p7zip_16.02_x86_linux_bin.tar.bz2" -s -o - | tar -xvjf - -C "$VENDOR_DIR"
 mv "$VENDOR_DIR/p7zip_9.20.1" "$VENDOR_DIR/p7zip"
 PROFILE_PATH="$BUILD_DIR/.profile.d/7za.sh"
 mkdir -p $(dirname $PROFILE_PATH)
